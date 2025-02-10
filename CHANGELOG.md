@@ -24,3 +24,8 @@
 
 - Initial stable, and ready for production use version of the package.
 - Breaking changes in the API design. Be sure to read the README.md file.
+
+## 1.0.1
+
+- Formatting changes in the codebase.
+- Pushed changes to GitLab repository.
