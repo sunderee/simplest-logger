@@ -29,3 +29,8 @@
 
 - Formatting changes in the codebase.
 - Pushed changes to GitLab repository.
+
+## 1.0.2
+
+- Refactor `SimplestLogger` to use global configuration and simplify initialization.
+- Update documentation.

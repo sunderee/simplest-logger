@@ -18,23 +18,32 @@ class TestService with SimplestLoggerMixin {
 }
 
 void main() {
+  // Create a logger instance with a context
   const logger = SimplestLogger('main');
-  logger.init();
 
+  // Log messages with default configuration (all levels enabled, colors on)
   logger.info('This is an info message');
   logger.warning('This is a warning message');
   logger.error('This is an error message');
 
-  logger.setLevel(SimplestLoggerLevel.none);
-  logger.info('This is an info message (should not be printed)');
+  // Disable all logging globally
+  SimplestLogger.setLevel(SimplestLoggerLevel.none);
+  logger.info('This message will not appear');
 
-  logger.setLevel(SimplestLoggerLevel.all);
-  logger.useColors(false);
+  // Re-enable logging and configure colors
+  SimplestLogger.setLevel(SimplestLoggerLevel.all);
+  SimplestLogger.useColors(false);
   logger.warning('This warning message is without colors');
 
-  logger.useColors(true);
+  // Re-enable colors
+  SimplestLogger.useColors(true);
 
+  // Example using the mixin
   final testService = TestService();
-  testService.performAction(false);
+  try {
+    testService.performAction(false); // This will throw
+  } catch (_) {
+    // Ignore the error for the example
+  }
   testService.performAction(true);
 }
