@@ -1,5 +1,5 @@
 import 'package:logging/logging.dart';
-import 'package:simplest_logger/src/simplest_logger_internal.dart';
+import 'package:simplest_logger/src/simplest_logger_config.dart';
 import 'package:simplest_logger/src/simplest_logger_level.dart';
 
 /// A logger instance that provides methods for logging messages with different severity levels.
@@ -10,7 +10,6 @@ import 'package:simplest_logger/src/simplest_logger_level.dart';
 /// Example:
 /// ```dart
 /// final logger = SimplestLogger('MyClass');
-/// logger.init();
 /// logger.info('Operation started');
 /// ```
 final class SimplestLogger {
@@ -26,32 +25,22 @@ final class SimplestLogger {
   /// identify where the log message originated from.
   const SimplestLogger(this.context);
 
-  /// Initializes the logger system.
-  ///
-  /// This method must be called before any logging can occur. It sets up the
-  /// internal logging infrastructure.
-  void init() {
-    SimplestLoggerInternal.instance();
-  }
-
   /// Sets the minimum logging level.
   ///
   /// Use this to control which messages get logged:
   /// - [SimplestLoggerLevel.all] enables all logging
   /// - [SimplestLoggerLevel.none] disables all logging
-  void setLevel(SimplestLoggerLevel level) {
-    Logger.root.level = switch (level) {
-      SimplestLoggerLevel.all => Level.ALL,
-      SimplestLoggerLevel.none => Level.OFF,
-    };
+  static void setLevel(SimplestLoggerLevel level) {
+    SimplestLoggerConfig.instance.setLevel(level);
   }
 
   /// Controls whether log messages are colored using ANSI color codes.
   ///
   /// Set [useColors] to `false` to disable colored output, which might be necessary
   /// when logging to a file or when the terminal doesn't support ANSI colors.
-  void useColors(bool useColors) =>
-      SimplestLoggerInternal.instance().useColors(useColors);
+  static void useColors(bool useColors) {
+    SimplestLoggerConfig.instance.useColors(useColors);
+  }
 
   /// Logs an informational message.
   ///

@@ -11,7 +11,6 @@
 /// Example usage:
 /// ```dart
 /// final logger = SimplestLogger('MyApp');
-/// logger.init();
 ///
 /// // Log different message types
 /// logger.info('Application started');
@@ -20,9 +19,14 @@
 ///   Exception('Connection failed'),
 ///   StackTrace.current
 /// );
+///
+/// // Configure logging globally
+/// SimplestLogger.setLevel(SimplestLoggerLevel.all);
+/// SimplestLogger.useColors(true);
 /// ```
 library;
 
+export './src/simplest_logger_config.dart';
 export './src/simplest_logger_instance.dart';
 export './src/simplest_logger_level.dart';
 export './src/simplest_logger_mixin.dart';
