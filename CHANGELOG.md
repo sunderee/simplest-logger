@@ -34,3 +34,7 @@
 
 - Refactor `SimplestLogger` to use global configuration and simplify initialization.
 - Update documentation.
+
+## 1.0.3
+
+Update dependencies.
