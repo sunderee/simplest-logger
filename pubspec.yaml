@@ -1,7 +1,7 @@
 name: simplest_logger
 description: "A lightweight, opinionated, colorful logging utility for Dart applications. Minimal configuration necessary."
-version: 1.0.4
-repository: "https://gitlab.com/dart-and-flutter-packages/simplest_logger"
+version: 1.0.5
+repository: "https://github.com/sunderee/simplest-logger"
 
 topics:
   - logging

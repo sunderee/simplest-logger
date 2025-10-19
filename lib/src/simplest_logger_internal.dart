@@ -77,10 +77,10 @@ final class SimplestLoggerInternal {
 
   /// Maps logging levels to ANSI color codes.
   String _colorFromLevel(Level level) => switch (level) {
-        Level.ALL => _blue,
-        Level.INFO => _green,
-        Level.WARNING => _yellow,
-        Level.SEVERE => _red,
-        _ => _white,
-      };
+    Level.ALL => _blue,
+    Level.INFO => _green,
+    Level.WARNING => _yellow,
+    Level.SEVERE => _red,
+    _ => _white,
+  };
 }

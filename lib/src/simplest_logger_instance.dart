@@ -69,16 +69,7 @@ final class SimplestLogger {
   /// - [message]: The error message to log
   /// - [error]: Optional error object providing more details about the error
   /// - [stackTrace]: Optional stack trace showing where the error occurred
-  void error(
-    String message, [
-    Object? error,
-    StackTrace? stackTrace,
-  ]) {
-    Logger(context).log(
-      Level.SEVERE,
-      message,
-      error,
-      stackTrace,
-    );
+  void error(String message, [Object? error, StackTrace? stackTrace]) {
+    Logger(context).log(Level.SEVERE, message, error, stackTrace);
   }
 }

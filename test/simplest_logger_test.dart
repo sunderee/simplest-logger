@@ -21,7 +21,8 @@ void main() {
       // Listen to log records directly
       subscription = Logger.root.onRecord.listen((record) {
         output.writeln(
-            '[${record.level}] ${record.loggerName}: ${record.message}');
+          '[${record.level}] ${record.loggerName}: ${record.message}',
+        );
         if (record.error != null) {
           output.writeln('Error: ${record.error}');
         }
@@ -43,20 +44,22 @@ void main() {
       expect(output.toString(), contains('Test message'));
     });
 
-    test('global configuration through static methods works correctly',
-        () async {
-      // Set level to none
-      SimplestLogger.setLevel(SimplestLoggerLevel.none);
-      logger.info('Should not appear');
-      await Future<void>.delayed(Duration.zero);
-      expect(output.toString(), isEmpty);
+    test(
+      'global configuration through static methods works correctly',
+      () async {
+        // Set level to none
+        SimplestLogger.setLevel(SimplestLoggerLevel.none);
+        logger.info('Should not appear');
+        await Future<void>.delayed(Duration.zero);
+        expect(output.toString(), isEmpty);
 
-      // Set level back to all
-      SimplestLogger.setLevel(SimplestLoggerLevel.all);
-      logger.info('Should appear');
-      await Future<void>.delayed(Duration.zero);
-      expect(output.toString(), contains('Should appear'));
-    });
+        // Set level back to all
+        SimplestLogger.setLevel(SimplestLoggerLevel.all);
+        logger.info('Should appear');
+        await Future<void>.delayed(Duration.zero);
+        expect(output.toString(), contains('Should appear'));
+      },
+    );
 
     test('global color configuration works correctly', () async {
       // Test with colors
