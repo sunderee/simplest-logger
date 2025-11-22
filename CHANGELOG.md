@@ -42,3 +42,7 @@ Update dependencies.
 ## 1.0.5
 
 Change repository URL, and format the codebase.
+
+## 1.0.6
+
+Update dependencies, SDK version constraints.
